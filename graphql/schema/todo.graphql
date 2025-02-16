@@ -1,0 +1,30 @@
+type Todo {
+    id: ID!
+    text: String!
+    done: Boolean!
+    user: User!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Query {
+    todos: [Todo!]!
+}
+
+type Mutation {
+    createTodo(input: NewTodo!): Todo!
+}
+
+input NewTodo {
+    text: String!
+}
+
+scalar DateTime
